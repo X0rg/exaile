@@ -1,8 +1,8 @@
 branches:
   only:
-    - master
+    - appveyor
 
-skip_non_tags: true
+skip_tags: true
 
 version: "{branch}-{build}"
 
@@ -43,6 +43,7 @@ before_build:
 
 build_script:
   - cmd: |
+      set MAKEFLAGS=-j0
       bash -lc "cd exaile/tools/installer && time ../../../python-gtk3-gst-sdk/win_installer/build_win32_installer.sh"
 
 after_build:
@@ -60,6 +61,3 @@ deploy:
   auth_token:
     secure: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   artifact: dist
-  on:
-    branch: master
-    APPVEYOR_REPO_TAG: true
