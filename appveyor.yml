@@ -1,6 +1,8 @@
 branches:
   only:
-    - appveyor
+    - master
+
+skip_non_tags: true
 
 version: "{branch}-{build}"
 
@@ -12,10 +14,9 @@ environment:
   BUILD_DIR: C:\msys64\home\appveyor
   BUILD_ROOT: exaile/tools/installer/_build_root
   SDK_NAME: exaile-binenv-win
-  SDK_VER: 25
-  SDK_URL: https://github.com/X0rg/exaile-binenv-win-appveyor/releases/download/$(SDK_NAME)-$(SDK_VER)/$(SDK_NAME)-$(SDK_VER).tar.xz
-  dist_name: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_NUMBER)
-  # dist_name: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_REPO_TAG_NAME)
+  SDK_VER: 1
+  SDK_URL: https://github.com/exaile/exaile-binenv-win-appveyor/releases/download/$(SDK_NAME)-$(SDK_VER)/$(SDK_NAME)-$(SDK_VER).tar.xz
+  dist_name: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_REPO_TAG_NAME)
 
 clone_folder: $(BUILD_DIR)\$(APPVEYOR_PROJECT_NAME)
 
@@ -32,7 +33,7 @@ install:
   - cmd: |
       cd %BUILD_DIR%
       git clone --depth=1 https://github.com/exaile/python-gtk3-gst-sdk.git
-      bash -lc "[[ -f $SDK_NAME-$SDK_VER.tar.xz ]] || time wget $SDK_URL"
+      bash -lc "[[ -f $SDK_NAME-$SDK_VER.tar.xz ]] || time wget -O $SDK_NAME-$SDK_VER.tar.xz $SDK_URL"
       bash -lc "time pacman --noconfirm --noprogressbar -Syuu"
 
 before_build:
@@ -54,12 +55,11 @@ artifacts:
 
 deploy:
   provider: GitHub
-  release: $(dist_name)
-  # release: $(APPVEYOR_REPO_TAG_NAME)
+  release: $(APPVEYOR_REPO_TAG_NAME)
   description: ""
   auth_token:
-    secure: CMwgWJtvz38DosX01//z6aWr1EVq5y3akaMLZ7pQ+U1eGr1TS91BpdQVwf/4kt0U
+    secure: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   artifact: dist
-  # on:
-  #   branch: master
-  #   APPVEYOR_REPO_TAG: true
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true
