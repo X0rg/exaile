@@ -12,8 +12,8 @@ environment:
   BUILD_DIR: C:\msys64\home\appveyor
   BUILD_ROOT: exaile/tools/installer/_build_root
   SDK_NAME: exaile-binenv-win
-  SDK_VER: 24
-  SDK_URL: https://github.com/sjohannes/exaile-binenv-win-appveyor/releases/download/$(SDK_NAME)-$(SDK_VER)/$(SDK_NAME)-$(SDK_VER).tar.xz
+  SDK_VER: 25
+  SDK_URL: https://github.com/X0rg/exaile-binenv-win-appveyor/releases/download/$(SDK_NAME)-$(SDK_VER)/$(SDK_NAME)-$(SDK_VER).tar.xz
   dist_name: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_NUMBER)
   # dist_name: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_REPO_TAG_NAME)
 
