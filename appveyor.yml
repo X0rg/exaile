@@ -49,7 +49,7 @@ before_build:
 
 build_script:
   - cmd: |
-      set MAKEFLAGS=-j0
+      set MAKEFLAGS=-j2
       bash -lc "cd exaile/tools/installer && time ../../../python-gtk3-gst-sdk/win_installer/build_win32_installer.sh"
 
 after_build:
