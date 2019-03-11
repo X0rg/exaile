@@ -5,6 +5,7 @@
 ;Based on the NSIS Modern User Interface Start Menu Folder Example Script
 ;Written by Joost Verburg
 
+    !verbose 4
     ;compression
     SetCompressor /SOLID LZMA
 
@@ -143,7 +144,7 @@ Section "-Exaile" SecExaile
 
     SetOutPath "$INSTDIR"
 
-    File /r /x "_dist\exaile\share\fonts" /x "_dist\exaile\share\fontconfig" "_dist\exaile\*.*"
+    File /r /x "fonts" /x "fontconfig" "_dist\exaile\*.*"
 
     ;Store installation folder
     WriteRegStr SHCTX "${INSTDIR_KEY}" "${INSTDIR_SUBKEY}" $INSTDIR
