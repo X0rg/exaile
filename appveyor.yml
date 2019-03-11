@@ -29,6 +29,7 @@ init:
       REM Update PATH for Bash
       set PATH=C:\msys64\usr\bin;%PATH%
       set GTK_SDK_VERBOSE=1
+      echo %dist_name%
 
       REM Show detailed package statistics on pacman -S
       echo [options]>> C:\msys64\etc\pacman.conf
