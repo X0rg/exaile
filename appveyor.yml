@@ -1,3 +1,5 @@
+skip_tags: true
+
 version: "{branch}-{build}"
 
 image: Visual Studio 2015
@@ -62,5 +64,5 @@ deploy:
     secure: CMwgWJtvz38DosX01//z6aWr1EVq5y3akaMLZ7pQ+U1eGr1TS91BpdQVwf/4kt0U
   artifact: dist
   on:
-    branch: master
+    branch: appveyor2
     APPVEYOR_REPO_TAG: true
