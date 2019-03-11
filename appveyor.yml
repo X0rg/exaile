@@ -1,5 +1,3 @@
-skip_tags: true
-
 version: "{branch}-{build}"
 
 image: Visual Studio 2015
