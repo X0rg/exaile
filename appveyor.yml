@@ -21,9 +21,9 @@ cache:
 init:
   - ps: >-
       If ($env:APPVEYOR_REPO_TAG) {
-        $env:dist_name="$(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_REPO_TAG_NAME)"
+        $env:dist_name="$env:APPVEYOR_PROJECT_NAME-$env:APPVEYOR_REPO_TAG_NAME"
       } Else {
-        $env:dist_name="$(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_NUMBER)"
+        $env:dist_name="$env:APPVEYOR_PROJECT_NAME-$env:APPVEYOR_BUILD_NUMBER"
       }
   - cmd: |
       REM Update PATH for Bash
