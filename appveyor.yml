@@ -57,6 +57,7 @@ deploy:
   provider: GitHub
   release: $(dist_name)
   description: ""
+  tag: $(APPVEYOR_REPO_TAG_NAME)
   draft: true
   auth_token:
     secure: CMwgWJtvz38DosX01//z6aWr1EVq5y3akaMLZ7pQ+U1eGr1TS91BpdQVwf/4kt0U
