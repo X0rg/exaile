@@ -55,7 +55,6 @@ artifacts:
 
 deploy:
   provider: GitHub
-  release: $(dist_name)
   description: ""
   tag: $(APPVEYOR_REPO_TAG_NAME)
   draft: true
