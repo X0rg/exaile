@@ -54,8 +54,6 @@ if __name__ == '__main__':
     os.environ['EXAILE_DIR'] = exaile_dir
     sys.path.insert(0, exaile_dir)
 
-    import xl.xdg
-    xl.xdg.local_hack = False
     import xl.version
     v = '%s.%s' % (xl.version.major, xl.version.minor)
 

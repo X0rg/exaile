@@ -31,8 +31,6 @@ jobs:
   #   - make check_format
   - stage: deploy
     sudo: false
-    install:
-    - sudo apt-get install -y python-gi
     script:
     - make dist
     provider: releases
