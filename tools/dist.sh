@@ -20,6 +20,7 @@ fi
 
 echo "Creating distribution for Exaile $DIST_VERSION"
 
+sed "s|\@version\@|$VERSION|" "$EXAILE_DIR/xl/version.py.in" > "dist/copy/xl/version.py"
 tar --gzip --format=posix --owner 0 --group 0 \
     -cf dist/exaile-${DIST_VERSION}.tar.gz \
     --exclude=dist/copy/.git* \

@@ -47,7 +47,10 @@ all_no_locale: compile completion manpage
 builddir:
 	mkdir -p build
 
-compile:
+set-version:
+	sed "s|\@version\@|$(VERSION)|" xl/version.py.in > xl/version.py
+
+compile: set-version
 	$(PYTHON2_CMD) -m compileall -q xl xlgui
 	-$(PYTHON2_CMD) -O -m compileall -q xl xlgui
 	$(MAKE) -C plugins compile
@@ -110,7 +113,6 @@ install: install-target install-locale
 install_no_locale: install-target
 
 install-target: make-install-dirs
-	sed "s|\@version\@|$(VERSION)|" xl/version.py.in > xl/version.py
 	install -m 644 exaile.py $(EXAILELIBDIR)
 	-install -m 644 xl/*.py[co] $(EXAILELIBDIR)/xl
 	install -m 644 xl/*.py $(EXAILELIBDIR)/xl
@@ -235,7 +237,7 @@ potball: builddir
 dist:
 	mkdir -p dist
 	rm -rf dist/copy
-	git archive HEAD --prefix=copy/ | tar -x -C dist
+	git archive HEAD --prefix=copy/ --worktree-attributes | tar -x -C dist
 	./tools/dist.sh
 	rm -rf dist/copy
 
