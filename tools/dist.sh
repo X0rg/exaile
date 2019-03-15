@@ -1,11 +1,10 @@
-#!/bin/sh -x
+#!/bin/sh
 
 set -e
 
 THISDIR=`dirname $0`
 EXAILE_DIR="$THISDIR"/..
-#DIST_VERSION=`EXAILE_DIR=$EXAILE_DIR python2 -c 'import xl.xdg; xl.xdg.local_hack=False; import xl.version; print xl.version.__version__'`
-DIST_VERSION="4.0.0rc3"
+DIST_VERSION=`EXAILE_DIR=$EXAILE_DIR python2 -c 'import xl.xdg; xl.xdg.local_hack=False; import xl.version; print xl.version.__version__'`
 
 if ! "$THISDIR"/plugin_tool.py check; then
     if [ -z "$EXAILE_IGNORE_PLUGINS" ]; then
