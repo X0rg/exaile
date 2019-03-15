@@ -1,6 +1,7 @@
 PYTHON2_CMD   ?= python2
 PYTEST        ?= py.test
 BLACK         ?= black
+VERSION       ?= devel
 
 PREFIX         = /usr/local
 EPREFIX        = $(PREFIX)
@@ -109,6 +110,7 @@ install: install-target install-locale
 install_no_locale: install-target
 
 install-target: make-install-dirs
+	sed "s|\@version\@|$(VERSION)|" xl/version.py.in > xl/version.py
 	install -m 644 exaile.py $(EXAILELIBDIR)
 	-install -m 644 xl/*.py[co] $(EXAILELIBDIR)/xl
 	install -m 644 xl/*.py $(EXAILELIBDIR)/xl

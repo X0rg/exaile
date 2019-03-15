@@ -44,6 +44,8 @@ random/
 /tools/installer/clean_osx.sh
 /tools/installer/clean_win32.sh
 
+/xl/version.py
+
 .DS_Store/
 
 # Eclipse settings
