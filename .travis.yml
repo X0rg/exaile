@@ -44,8 +44,7 @@ jobs:
     file_glob: true
     file: dist/*
     skip_cleanup: true
-    if: branch = travis_cd
-    #AND tag IS present
+    if: branch = travis_cd AND tag IS present
 
 notifications:
   irc:
