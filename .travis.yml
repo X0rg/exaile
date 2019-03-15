@@ -37,6 +37,8 @@ jobs:
       system_site_packages: true
     install:
     - sudo apt-get install -y python-gi
+    before_script:
+    - if [[ -n "$TRAVIS_TAG" ]]; then export DIST_VERSION=$TRAVIS_TAG; else export DIST_VERSION=$(git describe --tags --abbrev=0); fi
     script:
     - make dist
     deploy:

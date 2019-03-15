@@ -33,6 +33,7 @@ logger = logging.getLogger(__name__)
 
 __version__ = "devel"
 
+
 def get_current_version(directory):
     """
         Get the latest version identifier for the branch contained in
@@ -49,6 +50,7 @@ def get_current_version(directory):
     except (subprocess.CalledProcessError, OSError):
         return None
 
+
 def get_current_revision(directory):
     """
         Get the latest revision identifier for the branch contained in
@@ -64,6 +66,7 @@ def get_current_revision(directory):
             ).strip()
     except (subprocess.CalledProcessError, OSError):
         return None
+
 
 if "DIST_VERSION" in os.environ:
     __version__ = os.environ['DIST_VERSION']
