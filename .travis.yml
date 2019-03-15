@@ -38,8 +38,7 @@ jobs:
     install:
     - sudo apt-get install -y python-gi
     before_script:
-    - pwd
-    - if [[ -n "$TRAVIS_TAG" ]]; then export DIST_VERSION=$TRAVIS_TAG; else export DIST_VERSION=$(git describe --tags --abbrev=0); fi
+    - if [[ -n "$TRAVIS_TAG" ]]; then export DIST_VERSION=$TRAVIS_TAG; else export DIST_VERSION=$(git tag | tail -n1); fi
     - echo $DIST_VERSION
     script:
     - make dist
