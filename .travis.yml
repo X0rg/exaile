@@ -30,9 +30,10 @@ jobs:
   #   script:
   #   - make check_format
   - stage: deploy
-    sudo: false
-    install:
-    - pip install vext vext.gi
+    language: python
+    python: "2.7"
+    virtualenv:
+      system_site_packages: true
     script:
     - make dist
     provider: releases
