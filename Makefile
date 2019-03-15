@@ -246,7 +246,7 @@ check-doc: clean
 	$(MAKE) -C doc html
 
 BUILD_DIR		= /tmp/exaile-test-build
-test_compile:
+test_compile: set-version
 	mkdir -p $(BUILD_DIR)
 	cp --recursive xl xlgui plugins tools Makefile $(BUILD_DIR)
 	$(MAKE) -C $(BUILD_DIR) all
