@@ -31,9 +31,10 @@ jobs:
   #   - make check_format
   - stage: deploy
     language: python
-    python: "2.7"
     virtualenv:
       system_site_packages: true
+    install:
+      - sudo apt-get install -y python-gi
     script:
     - make dist
     provider: releases
