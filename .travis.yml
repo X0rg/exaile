@@ -45,7 +45,9 @@ jobs:
       file_glob: true
       file: dist/*
       skip_cleanup: true
-      tags: true
+      on:
+        branch: travis_cd
+        tags: true
 
 notifications:
   irc:
