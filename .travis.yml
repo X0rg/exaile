@@ -32,7 +32,7 @@ jobs:
   - stage: deploy
     sudo: false
     install:
-    - sudo apt-get install -y python-gi-dev python-gi-cairo
+    - sudo apt-get install -y python-gi python-gi-dev python-gi-cairo
     script:
     - make dist
     provider: releases
