@@ -6,11 +6,11 @@ language: python
 
 env:
   - IMGTAG=debian8
-  - IMGTAG=debian9
-  - IMGTAG=fedora27
-  - IMGTAG=fedora28
-  - IMGTAG=ubuntu16.04
-  - IMGTAG=ubuntu18.04
+  # - IMGTAG=debian9
+  # - IMGTAG=fedora27
+  # - IMGTAG=fedora28
+  # - IMGTAG=ubuntu16.04
+  # - IMGTAG=ubuntu18.04
 
 before_install:
 - docker pull exaile/exaile-testimg:${IMGTAG}
@@ -20,15 +20,15 @@ script:
 
 jobs:
   include:
-  - stage: format-check
-    sudo: false
-    language: python
-    python:
-    - "3.6"
-    install:
-    - pip install black
-    script:
-    - make check_format
+  # - stage: format-check
+  #   sudo: false
+  #   language: python
+  #   python:
+  #   - "3.6"
+  #   install:
+  #   - pip install black
+  #   script:
+  #   - make check_format
   - stage: deploy
     language: python
     python:
@@ -38,7 +38,9 @@ jobs:
     install:
     - sudo apt-get install -y python-gi
     before_script:
+    - pwd
     - if [[ -n "$TRAVIS_TAG" ]]; then export DIST_VERSION=$TRAVIS_TAG; else export DIST_VERSION=$(git describe --tags --abbrev=0); fi
+    - echo $DIST_VERSION
     script:
     - make dist
     deploy:
