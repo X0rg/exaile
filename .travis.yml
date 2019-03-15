@@ -30,6 +30,10 @@ jobs:
       script:
         - make check_format
     - stage: deploy
+      sudo: false
+      language: python
+      python:
+        - "3.6"
       script:
         - make VERSION=${TRAVIS_TAG} dist
       provider: releases
