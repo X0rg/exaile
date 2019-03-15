@@ -31,11 +31,6 @@ jobs:
     - make check_format
   - stage: deploy
     sudo: false
-    language: python
-    python:
-    - "3.6"
-    install:
-    - pip install PyGObject
     script:
     - make dist
     provider: releases
