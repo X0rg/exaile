@@ -31,6 +31,8 @@ jobs:
   #   - make check_format
   - stage: deploy
     sudo: false
+    install:
+    - sudo apt-get install -y pygobject
     script:
     - make dist
     provider: releases
