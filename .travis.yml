@@ -32,7 +32,7 @@ jobs:
   - stage: deploy
     sudo: false
     install:
-    - sudo apt-get install -y python-gi python-gi-dev python-gi-cairo
+    - pip install vext vext.gi
     script:
     - make dist
     provider: releases
